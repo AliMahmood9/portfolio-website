@@ -11,34 +11,27 @@ import { useState } from "react";
 import { useRef } from "react";
 
 import { BsFillMoonStarsFill } from "react-icons/bs";
-import {
-  AiFillTwitterCircle,
-  AiFillLinkedin,
-  AiFillYoutube,
-  AiFillGithub,
-  AiFillMediumSquare,
-  AiFillMail,
-} from "react-icons/ai";
+import { AiFillLinkedin, AiFillGithub, AiFillMail } from "react-icons/ai";
 import {
   BiLogoReact,
-  BiLogoJava,
+  BiLogoAngular,
+  BiLogoJavascript,
   BiLogoPython,
+  BiLogoDjango,
   BiLogoNodejs,
-  BiLogoSpringBoot,
+  BiLogoTypescript,
   BiLogoMongodb,
   BiLogoCss3,
   BiLogoTailwindCss,
   BiLogoBootstrap,
   BiLogoHtml5,
 } from "react-icons/bi";
-import {
-  SiApachemaven,
-  SiNumpy,
-  SiPandas,
-  SiMysql,
-  SiDocker,
-  SiSqlite,
-} from "react-icons/si";
+import { TbBrandReactNative } from "react-icons/tb";
+import { CgCircleci } from "react-icons/cg";
+import { SiTestinglibrary } from "react-icons/si";
+
+import { SiMysql, SiDocker, SiSqlite } from "react-icons/si";
+import { TbBrandCypress } from "react-icons/tb";
 
 import Ali from "../../public/ali.jpeg";
 import Bod from "../../public/bod.png";
@@ -78,16 +71,13 @@ export default function Home() {
     setHover(false);
   };
 
-  // Custom handleSubmit to include honeypot check
   const customHandleSubmit = (event) => {
     event.preventDefault();
 
     const form = event.target;
     const data = new FormData(form);
 
-    // Check honeypot field
     if (data.get("website")) {
-      // Honeypot field is filled, so it's a bot submission
       return;
     }
 
@@ -156,12 +146,11 @@ export default function Home() {
             <ul className="flex items-center justify-end">
               <li>
                 <span className="">
-                  {" "}
                   <BsFillMoonStarsFill
                     onClick={() => setDarkMode(!darkMode)}
                     className="cursor-pointer mr-5 text-2xl dark:text-slate-400 hover:text-teal-500 dark:hover:text-teal-500"
                   />
-                </span>{" "}
+                </span>
               </li>
               <li>
                 <a
@@ -200,9 +189,13 @@ export default function Home() {
                   options={{
                     strings: [
                       "Web Developer",
-                      "Mobile Developer",
+                      "Angular",
                       "React",
+                      "Next",
                       "Node",
+                      "Docker",
+                      "CI/CD",
+                      "React Native",
                     ],
                     autoStart: true,
                     loop: true,
@@ -215,7 +208,6 @@ export default function Home() {
               </h2>
             </div>
 
-            {/* <h3 className='text-3xl py-2 dark:text-white md:text-3xl'>Full Stack Developer and ML Enthusiast</h3> */}
             <p className="text-lg py-5 font-burton text-center leading-8 text-gray-800 dark:text-slate-400 md:text-xl max-w-10xl mx-auto">
               Hey! I'm a
               <span className="text-teal-500 m-1">Sr Software Engineer</span>{" "}
@@ -230,28 +222,18 @@ export default function Home() {
             </p>
 
             <div className="py-4 mb-20 text-5xl flex justify-center flex-row items-center text-gray-600 dark:text-gray-400 md:flex md:gap-10 lg:flex lg:gap-10 ">
-              {/* <a href="/" className="hover:text-teal-500">
-                <AiFillTwitterCircle />
-              </a> */}
               <a
                 href="https://www.linkedin.com/in/ali-mahmood-38b904136/"
                 className="hover:text-teal-500"
               >
                 <AiFillLinkedin />
               </a>
-              {/* <a href='https://youtube.com/@kshitijdarwhekar'  className='hover:text-teal-500'><AiFillYoutube /></a> */}
               <a
                 href="https://github.com/Alimahmood7"
                 className="hover:text-teal-500"
               >
                 <AiFillGithub />
               </a>
-              {/* <a
-                href="https://medium.com/@kshitijdarwhekar"
-                className="hover:text-teal-500"
-              >
-                <AiFillMediumSquare />
-              </a> */}
               <a
                 href="mailto:alimahmmod02@gmail.com"
                 className="hover:text-teal-500"
@@ -274,42 +256,22 @@ export default function Home() {
               </h2>
 
               <p className="text-lg py-4 text-justify leading-8 text-gray-800 dark:text-slate-400 md:text-xl max-w-10xl mx-auto">
-                Hi, I'm Ali Mahmood, a Senior Software Engineer with 5 years of
-                experience in developing innovative web applications. I’ve had
-                the pleasure of working at Arbisoft, and I’m currently part of
-                the talented team at Tkxel. Over the years, I’ve honed my skills
-                in modern JavaScript technologies, with a focus on Angular,
-                React, and Node.js. React, in particular, has become a major
-                area of interest for me due to its flexibility and power in
-                building scalable and dynamic user interfaces. My passion lies
-                in creating clean, efficient, and impactful solutions that not
-                only meet technical requirements but also enhance the user
+                I'm a Senior Software Engineer with 5 years of experience in
+                developing innovative web applications. I’ve had the pleasure of
+                working at Arbisoft, and I’m currently part of the talented team
+                at Tkxel. Over the years, I’ve honed my skills in modern
+                JavaScript technologies, with a focus on Angular, React, and
+                Node.js. React, in particular, has become a major area of
+                interest for me due to its flexibility and power in building
+                scalable and dynamic user interfaces. My passion lies in
+                creating clean, efficient, and impactful solutions that not only
+                meet technical requirements but also enhance the user
                 experience. When I’m not immersed in code, I enjoy staying
                 active by playing sports, especially cricket. It helps me
                 recharge and maintain a healthy work-life balance. Thanks for
                 stopping by—feel free to connect, and let’s explore
                 opportunities to collaborate!
               </p>
-
-              {/* <p className="text-lg py-4  text-justify leading-8 text-gray-800 dark:text-slate-400 md:text-xl max-w-10xl mx-auto">
-                These days, I'm really diving deep into{" "}
-                <span> Machine Learning </span> ,{" "}
-                <span> Artificial Intelligence </span>, and
-                <span> Generative AI. </span>
-                It's like unlocking a whole new world of possibilities! I'm
-                fascinated by how these technologies can predict outcomes,
-                understand languages, and even create new content out of thin
-                air. It's not just about coding anymore; it's about
-                understanding the magic behind the algorithms and using them to
-                create cool stuff.
-              </p>
-
-              <p className="text-lg py-4 text-justify leading-8 text-gray-800 dark:text-slate-400 md:text-xl max-w-10xl mx-auto">
-                When I’m not geeking out over tech stuff, you can usually find
-                me playing or watching cricket, which is my favourite way to
-                unwind. I also love listening to music, which keeps me inspired
-                and energised.
-              </p> */}
 
               <p className="text-lg py-4 text-justify leading-8 text-gray-800 dark:text-slate-400 md:text-xl max-w-10xl mx-auto">
                 Thanks for stopping by to learn a bit about me. Let's connect
@@ -333,13 +295,16 @@ export default function Home() {
             </h2>
             <div className="flex flex-wrap justify-evenly">
               <div className="p-2 text-xl dark:text-slate-400">
+                <BiLogoJavascript className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48" />
+                Javascript
+              </div>
+              <div className="p-2 text-xl dark:text-slate-400">
+                <BiLogoTypescript className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48" />
+                Typecript
+              </div>
+              <div className="p-2 text-xl dark:text-slate-400">
                 <BiLogoPython className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48" />
                 Python
-              </div>
-              {/* <div className='p-2 text-xl dark:text-gray-200'><BiLogoJavascript className='w-40 h-40 text-cyan-500 md:w-40 md:h-40 lg:w-48 lg:h-48'/>Java script</div> */}
-              <div className="p-2 text-xl dark:text-slate-400">
-                <BiLogoJava className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48" />{" "}
-                Java
               </div>
             </div>
 
@@ -347,7 +312,10 @@ export default function Home() {
               Front End
             </h2>
             <div className="flex flex-wrap justify-evenly">
-              {/* <div className='p-2 text-xl dark:text-gray-200 '><BiLogoAngular className='w-40 h-40 text-cyan-500 md:w-40 md:h-40 lg:w-48 lg:h-48' />Angular</div> */}
+              <div className="p-2 m-2 text-xl dark:text-slate-400">
+                <BiLogoAngular className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48" />
+                Angular
+              </div>
               <div className="p-2 m-2 text-xl dark:text-slate-400">
                 <BiLogoReact className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48" />
                 React
@@ -375,14 +343,13 @@ export default function Home() {
             </h2>
             <div className="flex flex-wrap justify-evenly">
               <div className="p-2 text-xl dark:text-slate-400">
-                <BiLogoSpringBoot className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48" />{" "}
-                Spring Boot
-              </div>
-              <div className="p-2 text-xl dark:text-slate-400">
                 <BiLogoNodejs className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48" />
                 Node Js
               </div>
-              {/* <div className='p-2 text-xl dark:text-gray-200'><SiExpress className='w-40 h-40 text-cyan-500 md:w-40 md:h-40 lg:w-48 lg:h-48'/> Express Js</div> */}
+              <div className="p-2 text-xl dark:text-slate-400">
+                <BiLogoDjango className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48" />{" "}
+                Django
+              </div>
             </div>
 
             <h2 className="text-3xl p-7 dark:text-slate-400 md:text-4xl lg:text-5xl">
@@ -408,20 +375,24 @@ export default function Home() {
             </h2>
             <div className="flex flex-wrap justify-evenly">
               <div className="p-2 text-xl dark:text-slate-400">
-                <SiApachemaven className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48 mb-5" />
-                Maven
+                <SiTestinglibrary className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48 mb-5" />{" "}
+                Testing library
               </div>
               <div className="p-2 text-xl dark:text-slate-400">
-                <SiNumpy className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48 mb-5" />
-                Numpy
+                <TbBrandCypress className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48 mb-5" />{" "}
+                Cypress
               </div>
               <div className="p-2 text-xl dark:text-slate-400">
-                <SiPandas className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48 mb-5" />{" "}
-                Pandas
+                <CgCircleci className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48 mb-5" />{" "}
+                Circle CI
               </div>
               <div className="p-2 text-xl dark:text-slate-400">
                 <SiDocker className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48 mb-5" />{" "}
                 Docker
+              </div>
+              <div className="p-2 text-xl dark:text-slate-400">
+                <TbBrandReactNative className="w-40 h-40 text-teal-500 md:w-40 md:h-40 lg:w-48 lg:h-48 mb-5" />{" "}
+                React Native
               </div>
             </div>
           </div>
@@ -685,7 +656,6 @@ export default function Home() {
               style={{ display: "none" }}
             />
 
-            {/* <button type='submit' disabled={state.submitting} className='bg-gradient-to-r from-teal-700 to-teal-500 my-2 hover:bg-gradient-to-l text-slate-200 px-4 py-2 rounded-lg'>Submit</button> */}
             <button
               type="submit"
               className="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-teal-700 to-teal-500 group-hover:from-cyan-500 group-hover:to-cyan-500 hover:text-slate-200 dark:text-slate-200 focus:ring-4 focus:outline-none focus:ring-teal-200 dark:focus:ring-teal-800"
@@ -708,40 +678,35 @@ export default function Home() {
                 href="https://code.visualstudio.com/"
                 className="font-medium text-slate-400 hover:text-teal-500"
               >
-                {" "}
-                Visual Studio Code{" "}
-              </a>{" "}
+                Visual Studio Code
+              </a>
               by yours truly , Built using
               <a
                 href="https://nextjs.org/"
                 className="font-medium text-slate-400 hover:text-teal-500"
               >
-                {" "}
-                Next.js{" "}
-              </a>{" "}
+                Next.js
+              </a>
               and
               <a
                 href="https://tailwindcss.com/"
                 className="font-medium text-slate-400 hover:text-teal-500"
               >
-                {" "}
-                Tailwind CSS{" "}
-              </a>{" "}
+                Tailwind CSS
+              </a>
               , Hosted on a
               <a
                 href="https://aws.amazon.com/what-is/vps/"
                 className="font-medium text-slate-400 hover:text-teal-500"
               >
-                {" "}
-                Personal VPS.{" "}
-              </a>{" "}
+                Personal VPS.
+              </a>
               Checkout the Repo on
               <a
                 href="https://github.com/Kshitij-Darwhekar/Kshitij-Website"
                 className="font-medium text-slate-400 hover:text-teal-500"
               >
-                {" "}
-                Github.{" "}
+                Github
               </a>
             </p>
           </footer>
